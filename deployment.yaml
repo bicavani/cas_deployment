@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: cas_dashboard
+  name: cas-dashboard
 spec:
   selector:
     matchLabels:
-      app: cas_dashboard
+      app: cas-dashboard
   replicas: 3
   template:
     metadata:
       labels:
-        app: cas_dashboard
+        app: cas-dashboard
     spec:
      containers:
-     - name: cas_dashboard
+     - name: cas-dashboard
        image: hoandm/cas_dashboard
        ports:
        - containerPort: 8080
@@ -25,15 +25,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: cas_dashboard
+  name: cas-dashboard
 spec:
   type: NodePort
   ports:
     - port: 80
       targetPort: 80
       protocol: TCP
-      nodePort: 3000
+      nodePort: 30001
   selector:
-    app: cas_dashboard
+    app: cas-dashboard
 
 
